@@ -10,8 +10,7 @@ copies each image to the clipboard, pastes it using `ctrl+v`, and presses `enter
    tick the "Add to PATH" option during installation.
 
 2. **Install Google Chrome**:
-   Ensure you have Google Chrome installed on your computer as the browser is required for the program to operate
-   effectively.
+   Ensure you have Google Chrome installed on your computer as the browser is required for the program to operate.
 
 3. **Download Repository**:
    Download and unzip the repository files into any folder of your choice.

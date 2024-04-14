@@ -1,0 +1,8 @@
+curl-cffi==0.6.2
+pillow==10.2.0
+keyboard==0.13.5
+pywin32
+nodriver==0.27rc3
+curl_cffi==0.6.2
+pytest==8.1.1
+validators==0.24.0

@@ -1,5 +1,6 @@
 import asyncio
 import io
+import logging
 from time import sleep
 
 import win32clipboard
@@ -16,8 +17,8 @@ async def send():
     async for image in images:
         try:
             image = await utils.prepare_image(io.BytesIO(image))
-        except OSError:
-            continue
+        except OSError as e:
+            logging.warning(str(e), exc_info=e)
         await send_to_clipboard(win32clipboard.CF_DIB, image)
         await keyboard.press_and_release('ctrl+v, enter')
         await asyncio.sleep(1)

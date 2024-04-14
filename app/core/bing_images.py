@@ -1,5 +1,6 @@
 import asyncio
 import json
+import logging
 from asyncio import Semaphore
 from typing import Literal
 
@@ -19,7 +20,8 @@ class BingImages:
     def __init__(self, base_url: str = 'https://www.bing.com', safe_search: bool = True):
         self.base_url = base_url
         self.safe_search = safe_search
-        self._session = AsyncSession(max_clients=100)
+
+        self._session = AsyncSession(impersonate='chrome', max_clients=100)
 
     @staticmethod
     async def _scrap_urls(tab: Tab, max_number: int):
@@ -80,7 +82,7 @@ class BingImages:
                 try:
                     yield await task
                 except Exception as e:
-                    print(f'Error downloading the image: {e}')
+                    logging.warning(str(e), exc_info=e)
 
         return _generator()
 

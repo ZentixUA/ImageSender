@@ -5,4 +5,5 @@ pywin32
 nodriver==0.27rc3
 curl_cffi==0.6.2
 pytest==8.1.1
+pytest-asyncio
 validators==0.24.0

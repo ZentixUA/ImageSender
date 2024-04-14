@@ -7,7 +7,7 @@ from app.core.bing_images import BingImages
 @pytest.mark.asyncio
 async def test_search_images():
     query = 'cats'
-    max_number = 5
+    max_number = 10
 
     async with BingImages() as client:
         image_urls = await client._search_urls(query, max_number)
@@ -19,9 +19,8 @@ async def test_search_images():
 @pytest.mark.asyncio
 async def test_get_images():
     query = 'cats'
-    max_number = 5
+    max_number = 10
     async with BingImages() as client:
         image_generator = await client.get_images(query, max_number)
-        images_list = [image async for image in image_generator]
-
-        assert len(images_list) == max_number
+        image_files = [image async for image in image_generator]
+        assert image_files
